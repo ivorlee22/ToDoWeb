@@ -1,5 +1,6 @@
 using ToDoApp.Application.Services;
 using ToDoWeb.Application.Dtos;
+using ToDoWeb.Application.MapperProfiles;
 using ToDoWeb.Application.Services;
 using ToDoWeb.Infrastructures;
 
@@ -23,6 +24,7 @@ builder.Services.AddScoped<ISchoolService, SchoolService>();
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddTransient<GuidData>();
 
+builder.Services.AddAutoMapper(typeof(ToDoProfile));
 
 //DI containers, IServiceProvider
 //DI containers

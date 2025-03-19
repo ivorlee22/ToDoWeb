@@ -6,8 +6,8 @@ namespace ToDoWeb.Application.Dtos
     {
 
         [Required]
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public DateTime? StartDate { get; set; }
+        public int CourseId { get; set; }
+        public string? CourseName { get; set; }
+        public DateTime StartDate { get; set; }
     }
 }

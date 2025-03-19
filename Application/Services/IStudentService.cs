@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using ToDoApp.Application.Dtos;
 using ToDoWeb.Application.Dtos;
 using ToDoWeb.Domains.Entities;
@@ -21,10 +22,12 @@ namespace ToDoApp.Application.Services
     public class StudentService : IStudentService
     {
         private readonly IApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public StudentService(IApplicationDbContext context)
+        public StudentService(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         // IQueryable: thể hiện 1 câu query
@@ -55,6 +58,9 @@ namespace ToDoApp.Application.Services
             // FROM Student
             // JOIN School ON School.Id = Student.SId
             // WHERE School.Id = schoolId (nếu thoả điều kiện vào được body của dòng if)
+
+            var result = _mapper.ProjectTo<Student>(query);
+            //???
             return query
                 .Select(x => new StudentViewModel
                 {
@@ -120,26 +126,27 @@ namespace ToDoApp.Application.Services
 
         public StudentCourseViewModel GetStudentDetail(int id)
         {
-            var student = _context.Student.Find(id);
+            // SELECT TOP 1 * FROM Student
+            var student = _context.Student
+                .Include(x => x.CourseStudents)
+                .ThenInclude(x => x.Course)
+                .Where(x => x.Id == id);
             if (student == null) return null;
 
-            var course = _context.CourseStudent
-                .Include(x => x.Course)
-                .Where(x => x.StudentId == id)
-                .Select(x => new CourseViewModel
-                {
-                    CourseId = x.CourseId,
-                    CourseName = x.Course.Name,
-                    StartDate = x.Course.StartDate,
-                })
-                .ToList();
+            //var course = _context.CourseStudent
+            //    .Include(x => x.Course)
+            //    .Where(x => x.StudentId == id)
+            //    .Select(x => new CourseViewModel
+            //    {
+            //        CourseId = x.CourseId,
+            //        CourseName = x.Course.Name,
+            //        StartDate = x.Course.StartDate,
+            //    })
+            //    .ToList();
 
-            return new StudentCourseViewModel
-            {
-                StudentName = student.FirstName + " " + student.LastName,
-                StudentId = student.Id,
-                Course = course,
-            };
+
+
+            return _mapper.ProjectTo<StudentCourseViewModel>(student).FirstOrDefault();
         }
     }
 }

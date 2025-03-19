@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Immutable;
+using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using ToDoWeb.Application.Dtos;
 using ToDoWeb.Domains.Entities;
@@ -24,68 +26,68 @@ namespace ToDoWeb.Application.Services
     public class CourseService : ICourseService
     {
         private readonly IApplicationDbContext _context;
+        private readonly IMapper _mapper;
 
-        public CourseService(IApplicationDbContext context)
+        public CourseService(IApplicationDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
 
 
-        public IEnumerable<CourseViewModel> GetCourse(int? studentId)
+        public IEnumerable<CourseViewModel> GetCourse(int? id)
         {
-            var query = _context.CourseStudent
-            .Include(c => c.Course)
-            .Where(c => c.StudentId == studentId)
-            .Select(c => new CourseViewModel
-            {
-                CourseId = c.Course.Id,
-                CourseName = c.Course.Name,
-                StartDate = c.Course.StartDate,
-            })
-            .ToList();
 
-            return query;
+            //var courses = _context.Course.AsNoTracking().ToList();
+            //courses[0].Name = "fafasd"; //Detached 
+            //_context.SaveChanges();
+            ////nếu code như trên thì EF sẽ k cần theo dõi nữa => tăng performance của chương trình
+
+            //var query = _context.CourseStudent
+            //.Include(c => c.Course)
+            //.Where(c => c.StudentId == studentId)
+            //.Select(c => new CourseViewModel
+            //{
+            //    Id = c.Course.Id,
+            //    Name = c.Course.Name,
+            //    StartDate = c.Course.StartDate,
+            //})
+            //.ToList();
+
+
+            var query = _context.Course.AsQueryable();
+            if (id.HasValue)
+            {
+                query = query.Where(course => course.Id == id);
+                if (query.Count() == 0) return null;
+            }
+            //List<Course> courses = query.ToList();
+
+            //var result = courses
+            //.Select(x => _mapper.Map<CourseViewModel>(x))
+            //.ToList();
+            //var result = _mapper.Map<List<CourseViewModel>>(courses);
+
+            var result = _mapper.ProjectTo<CourseViewModel>(query).ToList();
+
+            return result;
         }
 
         public StudentCourseViewModel GetCourseDetail(int id)
         {
-            var course = _context.Course.Find(id);
-            if (course == null) return null;
+            var student = _context.Student.Include(s => s.CourseStudents)
+                                   .ThenInclude(cs => cs.Course)
+                                   .FirstOrDefault(s => s.Id == id);
 
+            if (student == null) return null;
 
-            var candidate = _context.Student.FirstOrDefault(x => x.Id == id);
-            var query = _context.CourseStudent
-                .Where(x => x.StudentId == id)
-                .Include(c => c.Course)
-                .ToList();
-
-            return new StudentCourseViewModel
-            {
-                StudentId = candidate.Id,
-                StudentName = candidate.FirstName + " " + candidate.LastName,
-                Course = query.Select(x => new CourseViewModel
-                {
-                    CourseId = x.Course.Id,
-                    CourseName = x.Course.Name,
-                    StartDate = x.Course.StartDate,
-
-                }).ToList(),
-            };
+            return _mapper.Map<StudentCourseViewModel>(student);
         }
 
         public int PostCourse(CourseCreateModel course)
         {
-            if (_context.Course.Any(x => x.Id == course.Id))
-            {
-                Console.WriteLine($"Id {course.Id} already exists.");
-                return course.Id;
-            }
-            var data = new Course
-            {
-                Name = course.Name,
-                StartDate = course.StartDate,
-            };
+            var data = _mapper.Map<Course>(course);
             _context.Course.Add(data);
             _context.SaveChanges();
             return data.Id;
@@ -93,14 +95,16 @@ namespace ToDoWeb.Application.Services
 
         public int PutCourse(CourseUpdateModel course)
         {
-            var data = _context.Course.Find(course.Id);
-            if (data == null) return -1;
+            var oldCourse = _context.Course.Find(course.CourseId);
+            if (oldCourse == null) return -1;
 
-            if (!string.IsNullOrEmpty(course.Name)) data.Name = course.Name;
-            if (course.StartDate != null) data.StartDate = course.StartDate.Value;
+            //if (!string.IsNullOrEmpty(course.Name)) oldCourse.Name = course.Name;
+            //if (course.StartDate != null) oldCourse.StartDate = course.StartDate.Value;
 
+            _mapper.Map(course, oldCourse);
+            //_mapper.Map<Course>(course);
             _context.SaveChanges();
-            return data.Id;
+            return oldCourse.Id;
 
         }
         public void DeleteCourse(int courseId)
@@ -161,9 +165,6 @@ namespace ToDoWeb.Application.Services
                     CourseId = x.CourseId,
                     CourseName = x.Course.Name,
                     StartDate = x.Course.StartDate,
-                    Assignment = x.Assignment,
-                    Final = x.Final,
-                    Practical = x.Practical
                 }).ToList();
 
 
