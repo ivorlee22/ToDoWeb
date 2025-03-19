@@ -1,0 +1,398 @@
+SELECT [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [FullName], [s].[Age], [s0].[Name] AS [SchoolName]
+FROM [Students] AS [s]
+INNER JOIN [School] AS [s0] ON [s].[SId] = [s0].[Id]
+SELECT [s].[Id], [s].[Name], [s].[Address]
+FROM [School] AS [s]
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+INSERT INTO [School] ([Address], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p5, @p6);
+
+SELECT [s].[Id], [s].[Name], [s].[Address]
+FROM [School] AS [s]
+SELECT [s].[Id], [s].[Name], [s].[Address]
+FROM [School] AS [s]
+SELECT [s].[Id], [s].[Name], [s].[Address]
+FROM [School] AS [s]
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [School] ([Address], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [School] ([Address], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [School] ([Address], [Name])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+SELECT [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+SELECT [c].[Id], [c].[Name], [c].[StartDate]
+FROM [Course] AS [c]
+SELECT [c].[StartDate]
+FROM [Course] AS [c]
+SELECT [c].[Id] AS [CourseId], [c].[Name] AS [CourseName], [c].[StartDate]
+FROM [Course] AS [c]
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Course] ([CreatedAt], [CreatedBy], [Name], [StartDate], [UpdatedAt], [UpdatedBy])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Course] AS [c]
+        WHERE [c].[Id] = @__course_Id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Course] ([CreatedAt], [CreatedBy], [Name], [StartDate], [UpdatedAt], [UpdatedBy])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Course] ([CreatedAt], [CreatedBy], [Name], [StartDate], [UpdatedAt], [UpdatedBy])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5);
+
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Course] SET [Name] = @p5, [StartDate] = @p6, [UpdatedAt] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Course] SET [Name] = @p5, [StartDate] = @p6, [UpdatedAt] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Course] SET [Name] = @p5, [StartDate] = @p6, [UpdatedAt] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Course] SET [Name] = @p5, [StartDate] = @p6, [UpdatedAt] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Course] SET [StartDate] = @p5, [UpdatedAt] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+
+SELECT TOP(1) [c].[Id], [c].[CreatedAt], [c].[CreatedBy], [c].[Name], [c].[StartDate], [c].[UpdatedAt], [c].[UpdatedBy]
+FROM [Course] AS [c]
+WHERE [c].[Id] = @__p_0
+SET NOCOUNT ON;
+INSERT INTO [AuditLog] ([Action], [CreatedAt], [EntityName], [NewValue], [OldValue])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+UPDATE [Course] SET [Name] = @p5, [UpdatedAt] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+
+SELECT [s0].[Id], [s0].[Address1], [s0].[Age], [s0].[Balance], [s0].[DateOfBirth], [s0].[FirstName], [s0].[Surname], [s0].[SId], [s1].[CourseId], [s1].[StudentId], [s1].[Assignment], [s1].[Final], [s1].[Practical], [s1].[Id], [s1].[CreatedAt], [s1].[CreatedBy], [s1].[Name], [s1].[StartDate], [s1].[UpdatedAt], [s1].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [s].[Id], [s].[Address1], [s].[Age], [s].[Balance], [s].[DateOfBirth], [s].[FirstName], [s].[Surname], [s].[SId]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c].[CourseId], [c].[StudentId], [c].[Assignment], [c].[Final], [c].[Practical], [c0].[Id], [c0].[CreatedAt], [c0].[CreatedBy], [c0].[Name], [c0].[StartDate], [c0].[UpdatedAt], [c0].[UpdatedBy]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[Address1], [s0].[Age], [s0].[Balance], [s0].[DateOfBirth], [s0].[FirstName], [s0].[Surname], [s0].[SId], [s1].[CourseId], [s1].[StudentId], [s1].[Assignment], [s1].[Final], [s1].[Practical], [s1].[Id], [s1].[CreatedAt], [s1].[CreatedBy], [s1].[Name], [s1].[StartDate], [s1].[UpdatedAt], [s1].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [s].[Id], [s].[Address1], [s].[Age], [s].[Balance], [s].[DateOfBirth], [s].[FirstName], [s].[Surname], [s].[SId]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c].[CourseId], [c].[StudentId], [c].[Assignment], [c].[Final], [c].[Practical], [c0].[Id], [c0].[CreatedAt], [c0].[CreatedBy], [c0].[Name], [c0].[StartDate], [c0].[UpdatedAt], [c0].[UpdatedBy]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[Address1], [s0].[Age], [s0].[Balance], [s0].[DateOfBirth], [s0].[FirstName], [s0].[Surname], [s0].[SId], [s1].[CourseId], [s1].[StudentId], [s1].[Assignment], [s1].[Final], [s1].[Practical], [s1].[Id], [s1].[CreatedAt], [s1].[CreatedBy], [s1].[Name], [s1].[StartDate], [s1].[UpdatedAt], [s1].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [s].[Id], [s].[Address1], [s].[Age], [s].[Balance], [s].[DateOfBirth], [s].[FirstName], [s].[Surname], [s].[SId]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c].[CourseId], [c].[StudentId], [c].[Assignment], [c].[Final], [c].[Practical], [c0].[Id], [c0].[CreatedAt], [c0].[CreatedBy], [c0].[Name], [c0].[StartDate], [c0].[UpdatedAt], [c0].[UpdatedBy]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[Address1], [s0].[Age], [s0].[Balance], [s0].[DateOfBirth], [s0].[FirstName], [s0].[Surname], [s0].[SId], [s1].[CourseId], [s1].[StudentId], [s1].[Assignment], [s1].[Final], [s1].[Practical], [s1].[Id], [s1].[CreatedAt], [s1].[CreatedBy], [s1].[Name], [s1].[StartDate], [s1].[UpdatedAt], [s1].[UpdatedBy]
+FROM (
+    SELECT TOP(1) [s].[Id], [s].[Address1], [s].[Age], [s].[Balance], [s].[DateOfBirth], [s].[FirstName], [s].[Surname], [s].[SId]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c].[CourseId], [c].[StudentId], [c].[Assignment], [c].[Final], [c].[Practical], [c0].[Id], [c0].[CreatedAt], [c0].[CreatedBy], [c0].[Name], [c0].[StartDate], [c0].[UpdatedAt], [c0].[UpdatedBy]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
+SELECT [s0].[Id], [s0].[c], [s1].[CourseId], [s1].[CourseName], [s1].[StartDate], [s1].[CourseId0], [s1].[StudentId]
+FROM (
+    SELECT TOP(1) [s].[Id], COALESCE([s].[FirstName], N'') + N' ' + COALESCE([s].[Surname], N'') AS [c]
+    FROM [Students] AS [s]
+    WHERE [s].[Id] = @__id_0
+) AS [s0]
+LEFT JOIN (
+    SELECT [c0].[Id] AS [CourseId], [c0].[Name] AS [CourseName], [c0].[StartDate], [c].[CourseId] AS [CourseId0], [c].[StudentId]
+    FROM [CourseStudent] AS [c]
+    INNER JOIN [Course] AS [c0] ON [c].[CourseId] = [c0].[Id]
+) AS [s1] ON [s0].[Id] = [s1].[StudentId]
+ORDER BY [s0].[Id], [s1].[CourseId0], [s1].[StudentId]
